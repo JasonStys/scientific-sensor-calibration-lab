@@ -122,7 +122,7 @@ internal static class Program
         var fit = Fit(points);
         if (Math.Abs((double)fit["a"]! - 10) > 1e-12 || Math.Abs((double)fit["b"]! - 2) > 1e-12 ||
             Math.Abs((double)fit["var_b"]! - 0.1) > 1e-12 || Math.Abs((double)fit["var_a"]! - 0.6) > 1e-12 ||
-            Math.Abs((double)fit["cov_ab"]! + 0.2) > 1e-12 || (double)fit["chi2_reduced"]! != 0)
+            Math.Abs((double)fit["cov_ab"]! + 0.2) > 1e-12 || Math.Abs((double)fit["chi2_reduced"]!) > 1e-12)
             throw new InvalidOperationException("Analytical fit/covariance");
         var scaled = Fit(points.Select(p => p with { U = p.U * 2 }).ToList());
         if (Math.Abs((double)scaled["var_b"]! - 0.4) > 1e-12) throw new InvalidOperationException("Uncertainty scaling");

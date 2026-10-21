@@ -20,6 +20,8 @@ The first full pass found a synthetic unequal-uncertainty preset whose maximum m
 
 ## Hosted matrix and release acceptance
 
+The first hosted CodeQL pass reported a quality note on exact floating-point equality in a native analytical self-test. The zero-residual assertion now uses an explicit1e−12 tolerance, consistent with the other analytical expectations. It was corrected in source rather than dismissed or excluded from analysis.
+
 Validation has8 jobs:4 model jobs (Ubuntu Python3.12/3.14, Windows/macOS Python3.14),1 Linux three-engine browser job,3 actual portable publish/freeze/smoke jobs. CodeQL has3 jobs (C#, Python, JavaScript/TypeScript), security-and-quality queries; review open findings separately from job/upload status. Release has4 jobs (exact-SHA preparation gate and3 native builds). Pinned Actions, read-only default permissions, narrowly granted security-events/release writes, no artifact/cache uploads and no automatic cleanup.
 
 Before publishing: require newest exact-SHA Validation/CodeQL success and reviewed open findings; create draft; require all release jobs; download all6 assets; check GitHub digests/adjacent SHA-256, ZIP CRC/path confinement, native/runtime notices, SQL/UI resources. Execute downloaded Windows app for actual exports/replay/SQL/HTTP and rerun all36 browser tests against it. Linux/macOS execution happens on CI, not manually on this Windows PC. Record commit, run URLs, result counts and all ZIP digests in public release notes without copying private account/billing data. Unsigned portable binaries remain subject to OS security policies.
