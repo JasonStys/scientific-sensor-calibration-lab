@@ -1,0 +1,58 @@
+{
+  "calibration": [
+    { "signal_uv": 394000, "u_uv": 6000, "x_milli": 0 },
+    { "signal_uv": 654000, "u_uv": 6000, "x_milli": 12500 },
+    { "signal_uv": 897000, "u_uv": 6000, "x_milli": 25000 },
+    { "signal_uv": 1155000, "u_uv": 6000, "x_milli": 37500 },
+    { "signal_uv": 1398000, "u_uv": 6000, "x_milli": 50000 },
+    { "signal_uv": 1653000, "u_uv": 6000, "x_milli": 62500 },
+    { "signal_uv": 1896000, "u_uv": 6000, "x_milli": 75000 },
+    { "signal_uv": 2152000, "u_uv": 6000, "x_milli": 87500 },
+    { "signal_uv": 2401000, "u_uv": 6000, "x_milli": 100000 }
+  ],
+  "checks": [
+    { "signal_uv": 596500, "u_uv": 6000, "x_milli": 10000 },
+    { "signal_uv": 1003500, "u_uv": 6000, "x_milli": 30000 },
+    { "signal_uv": 1396500, "u_uv": 6000, "x_milli": 50000 },
+    { "signal_uv": 1803500, "u_uv": 6000, "x_milli": 70000 },
+    { "signal_uv": 2196500, "u_uv": 6000, "x_milli": 90000 }
+  ],
+  "config": {
+    "age_days": 0,
+    "chi_limit": 9,
+    "max_age_days": 90,
+    "rail_high_uv": 2600000,
+    "rail_low_uv": 300000,
+    "z_limit": 3
+  },
+  "name": "linear-clean",
+  "provenance": "Invented laboratory temperature sensor by Jason Stys; no physical reference standards, measured device data or calibration certification.",
+  "samples": [
+    { "reference_milli": 5000, "signal_uv": 497000, "u_uv": 6000 },
+    { "reference_milli": 9000, "signal_uv": 580000, "u_uv": 6000 },
+    { "reference_milli": 13000, "signal_uv": 663000, "u_uv": 6000 },
+    { "reference_milli": 17000, "signal_uv": 737000, "u_uv": 6000 },
+    { "reference_milli": 21000, "signal_uv": 820000, "u_uv": 6000 },
+    { "reference_milli": 25000, "signal_uv": 903000, "u_uv": 6000 },
+    { "reference_milli": 29000, "signal_uv": 977000, "u_uv": 6000 },
+    { "reference_milli": 33000, "signal_uv": 1060000, "u_uv": 6000 },
+    { "reference_milli": 37000, "signal_uv": 1143000, "u_uv": 6000 },
+    { "reference_milli": 41000, "signal_uv": 1217000, "u_uv": 6000 },
+    { "reference_milli": 45000, "signal_uv": 1300000, "u_uv": 6000 },
+    { "reference_milli": 49000, "signal_uv": 1383000, "u_uv": 6000 },
+    { "reference_milli": null, "signal_uv": 1457000, "u_uv": 6000 },
+    { "reference_milli": 57000, "signal_uv": 1540000, "u_uv": 6000 },
+    { "reference_milli": 61000, "signal_uv": 1623000, "u_uv": 6000 },
+    { "reference_milli": 65000, "signal_uv": 1697000, "u_uv": 6000 },
+    { "reference_milli": 69000, "signal_uv": 1780000, "u_uv": 6000 },
+    { "reference_milli": 73000, "signal_uv": 1863000, "u_uv": 6000 },
+    { "reference_milli": 77000, "signal_uv": 1937000, "u_uv": 6000 },
+    { "reference_milli": 81000, "signal_uv": 2020000, "u_uv": 6000 },
+    { "reference_milli": 85000, "signal_uv": 2103000, "u_uv": 6000 },
+    { "reference_milli": 89000, "signal_uv": 2177000, "u_uv": 6000 },
+    { "reference_milli": 93000, "signal_uv": 2260000, "u_uv": 6000 },
+    { "reference_milli": 97000, "signal_uv": 2343000, "u_uv": 6000 }
+  ],
+  "schema": 1,
+  "unit": "degC"
+}

@@ -1,0 +1,502 @@
+/* DATUM instrument design by Jason Stys; selectors/variables: docs/CODE_INDEX.md. */
+:root {
+  font-family: Inter, "Segoe UI", sans-serif;
+  color: #303b3b;
+  background: #f3f0ea;
+  font-synthesis: none;
+  --ink: #303b3b;
+  --copper: #835533;
+  --muted: #514c49;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+a:hover {
+  color: var(--copper);
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+a,
+input,
+select {
+  touch-action: manipulation;
+}
+button,
+select {
+  min-height: 44px;
+}
+button {
+  border: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+select {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #a3b0b6;
+  color: var(--ink);
+  padding: 9px;
+}
+label {
+  display: grid;
+  gap: 9px;
+  font-size: 0.8rem;
+}
+header,
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 4%;
+  background: var(--ink);
+  color: #f8f5ed;
+}
+header a {
+  text-decoration: none;
+}
+header nav {
+  display: flex;
+  gap: 25px;
+  font-size: 0.85rem;
+}
+.brand {
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand small {
+  font-size: 0.55rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+.brand-mark {
+  color: #d7a57e;
+  font-size: 2rem;
+}
+main {
+  max-width: 1380px;
+  margin: auto;
+  padding: 0 4%;
+}
+.intro {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  gap: 10%;
+  padding: 66px 0 52px;
+}
+.eyebrow {
+  font-family: Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+h1 {
+  font-weight: 400;
+  font-size: clamp(2.8rem, 5.5vw, 5.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  margin: 22px 0;
+}
+em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  color: var(--copper);
+}
+.lede {
+  max-width: 580px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.intro aside {
+  border-left: 1px solid #a9b0ae;
+  padding-left: 40px;
+  font-family: Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.9;
+}
+.pill {
+  font-size: 0.61rem;
+  border: 1px solid #b5b9b5;
+  padding: 9px;
+  white-space: nowrap;
+}
+#controls {
+  display: grid;
+  grid-template-columns: 1.5fr 1.4fr 1fr 1fr auto;
+  gap: 14px;
+  padding: 22px;
+  background: #e5e0d7;
+  align-items: end;
+}
+#controls button {
+  grid-column: auto;
+}
+.flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 24px 0;
+}
+.node {
+  border: 1px solid #c2c9b8;
+  padding: 22px;
+  background: #eff1e6;
+}
+.node span,
+.node small {
+  display: block;
+  font-size: 0.74rem;
+  line-height: 1.6;
+}
+.node strong {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin: 12px 0;
+}
+.bus {
+  background: #263d2d;
+  color: #fff;
+}
+.critical {
+  border-left: 4px solid #9a482e;
+}
+.flexible {
+  border-left: 4px solid #ad8a47;
+}
+.alternate {
+  background: #94713f;
+}
+.outage {
+  background: #e2dfd0;
+}
+.critical-key {
+  background: #9a482e;
+}
+.flexible-key {
+  background: #ad8a47;
+}
+#status {
+  font-size: 0.82rem;
+  min-height: 25px;
+  margin: 20px 0 26px;
+  color: #354f58;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #b4bfbe;
+  margin-bottom: 28px;
+}
+.metrics > div {
+  padding: 24px;
+  border-right: 1px solid #b4bfbe;
+}
+.metrics span,
+.metrics small {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+.metrics strong {
+  display: block;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.7vw, 2.5rem);
+  margin: 12px 0;
+}
+.metrics small {
+  font-size: 0.75rem;
+}
+.panel {
+  border: 1px solid #b4bfbe;
+  background: #fbfaf5;
+  padding: 32px;
+  margin: 28px 0;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  align-items: center;
+}
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.12;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  margin: 12px 0 20px;
+}
+.section-head label {
+  min-width: 220px;
+}
+.muted {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #f2f3ee;
+}
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.73rem;
+  margin: 14px 0 24px;
+}
+.legend i {
+  display: inline-block;
+  width: 20px;
+  height: 8px;
+  margin-right: 5px;
+}
+.line {
+  background: #215a41;
+}
+.band {
+  background: #d6bda9;
+}
+.scrub {
+  grid-template-columns: 1fr auto;
+}
+.scrub input {
+  grid-column: 1/-1;
+  width: 100%;
+  accent-color: var(--copper);
+  height: 25px;
+}
+.inspection {
+  background: #e4e8db;
+  padding: 20px;
+  font-family: Consolas, monospace;
+  font-size: 0.86rem;
+  line-height: 1.8;
+}
+.notice {
+  font-size: 0.81rem;
+  line-height: 1.6;
+  border-left: 3px solid var(--copper);
+  padding-left: 15px;
+}
+.order-panel {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 7%;
+}
+.order-panel p {
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+.pair-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+#pair-result {
+  padding: 26px;
+  background: #e4e8db;
+  margin: 22px 0;
+  font-family: Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: left;
+}
+caption {
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-bottom: 15px;
+}
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #d1d6d2;
+  white-space: nowrap;
+}
+th {
+  background: #e4e8db;
+}
+.export {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%;
+  padding: 42px 0;
+}
+.export p {
+  font-size: 0.87rem;
+  line-height: 1.7;
+}
+.downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.downloads a {
+  padding: 13px 20px;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+code {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  margin: 20px 0;
+}
+.method {
+  padding: 56px 0;
+}
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin: 32px 0;
+}
+.method h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.method p {
+  font-size: 0.86rem;
+  line-height: 1.8;
+}
+footer {
+  font-size: 0.72rem;
+  padding: 30px 4%;
+}
+.skip {
+  position: absolute;
+  left: 10px;
+  top: -80px;
+  padding: 15px;
+  background: white;
+  z-index: 10;
+}
+.skip:focus {
+  top: 10px;
+}
+:focus-visible {
+  outline: 3px solid #b96536;
+  outline-offset: 4px;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 1000px) {
+  #controls {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #controls button {
+    grid-column: auto;
+  }
+  .brand small {
+    display: none;
+  }
+  .metrics > div {
+    padding: 18px;
+  }
+  .panel {
+    padding: 24px;
+  }
+}
+@media (max-width: 650px) {
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  header nav {
+    gap: 22px;
+  }
+  .intro {
+    grid-template-columns: 1fr;
+    padding: 38px 0;
+  }
+  .intro aside {
+    display: none;
+  }
+  #controls {
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+  }
+  #controls button {
+    grid-column: 1 / -1;
+  }
+  .flow {
+    grid-template-columns: 1fr;
+  }
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+  .metrics > div {
+    border-bottom: 1px solid #b4bfbe;
+  }
+  .section-head,
+  .order-panel,
+  .export {
+    display: block;
+  }
+  .section-head label {
+    margin: 20px 0;
+  }
+  .panel {
+    padding: 18px;
+  }
+  .pair-controls {
+    margin-top: 25px;
+  }
+  .method-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .export > div {
+    margin-bottom: 30px;
+  }
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .legend {
+    gap: 10px;
+  }
+  h1 {
+    font-size: 3.2rem;
+  }
+  .pill {
+    white-space: normal;
+  }
+}

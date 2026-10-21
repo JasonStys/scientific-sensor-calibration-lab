@@ -1,0 +1,68 @@
+# File catalog
+
+Every tracked-intent file; dependencies/private outputs are excluded.
+
+- `.gitattributes` — Normalize source text to LF and preserve binary screenshot assets.
+- `.github/workflows/codeql.yml` — # Security and quality analysis by Jason Stys; variables/jobs: docs/FILE_CATALOG.md.
+- `.github/workflows/release.yml` — # Draft-only portable publishing by Jason Stys. Exact-commit successful workflows gate each release.
+- `.github/workflows/validate.yml` — # Offline calibration verification by Jason Stys. Matrix/contracts: docs/VALIDATION.md.
+- `.gitignore` — Exclude dependencies, runtime/private data, histories and generated builds from Git.
+- `.prettierignore` — Exclude generated indexes, locks and build/dependency trees from formatting.
+- `.prettierrc.json` — Shared readable browser/configuration/Markdown formatting options.
+- `LICENSE` — MIT License
+- `README.md` — # Scientific Sensor Calibration Lab · DATUM
+- `SECURITY.md` — # Security policy
+- `calibration-core/CalibrationCore.csproj` — <!-- Jason Stys: dependency-free .NET weighted-fit worker; build contract in docs/ARCHITECTURE.md. -->
+- `calibration-core/Program.cs` — // Weighted calibration kernel by Jason Stys. Main, Read, Fit, Empty, SelfTest and Point fields:
+- `calibration-core/packages.lock.json` — Empty NuGet package graph: C# kernel uses only the .NET base class library.
+- `docs/API.md` — # Local API and strict input
+- `docs/ARCHITECTURE.md` — # Architecture and decisions
+- `docs/MODEL.md` — # Calibration model, units and limitations
+- `docs/RELEASE.md` — # Release, acceptance and rollback
+- `docs/THIRD_PARTY.md` — # Third-party notices and provenance
+- `docs/USER_GUIDE.md` — # User guide and troubleshooting
+- `docs/VALIDATION.md` — # Validation strategy and measured evidence
+- `docs/images/workbench.png` — Binary screenshot asset from local application validation
+- `docs/reports/benchmark.json` — Reviewed six-case calibration quality and sample-result contracts.
+- `examples/instrument.json` — Editable strict synthetic calibration/check/sample records with fixed units and provenance.
+- `global.json` — Pinned stable .NET SDK; preview/roll-forward disabled.
+- `launcher.py` — """Portable local application entry by Jason Stys; main contract: docs/CODE_INDEX.md."""
+- `licenses/PYTHON.txt` — A. HISTORY OF THE SOFTWARE
+- `package-lock.json` — Resolved npm dependency graph with download integrity values.
+- `package.json` — Pinned browser dependencies, Node version contract and build/test/audit scripts.
+- `playwright.config.ts` — /** Real three-browser sensor-lab acceptance by Jason Stys. Fields: docs/CODE_INDEX.md. */
+- `pyproject.toml` — Python metadata, supported runtimes, strict lint/type/test and coverage gates.
+- `requirements-dev.in` — Scientific test, type, style, audit and packaging dependency inputs.
+- `requirements-dev.lock` — Universal pinned development/build graph with distribution hashes.
+- `requirements.in` — Standard-library-only Python runtime declaration (no third-party runtime packages).
+- `requirements.lock` — Empty runtime lock: this service uses only the CPython standard library.
+- `sensorlab/__init__.py` — """Scientific Sensor Calibration Lab by Jason Stys; synthetic dispatch, not infrastructure control."""
+- `sensorlab/__main__.py` — """Local calibration-lab CLI by Jason Stys. Function main and argument locations: docs/CODE_INDEX.md.
+- `sensorlab/engine.py` — """Native/reference verification, uncertainty and evidence gates by Jason Stys.
+- `sensorlab/model.py` — """Strict synthetic calibration inputs by Jason Stys. Settings, configuration, validate and loaders:
+- `sensorlab/reference.py` — """Independent exact-rational weighted-fit reference by Jason Stys. Functions/variables: docs/CODE_INDEX.md.
+- `sensorlab/reports.py` — """Inert evidence exports and optional private history by Jason Stys.
+- `sensorlab/resources/history.sql` — -- Immutable local synthetic calibration evidence by Jason Stys; identifiers: docs/CODE_INDEX.md.
+- `sensorlab/server.py` — """Loopback-only, read-only HTTP application by Jason Stys; not an Internet server.
+- `tests/test_calibration.py` — """Analytical, differential and quality-gate contracts by Jason Stys. Function/variable index: docs/CODE_INDEX.md."""
+- `tests/test_inputs.py` — """Strict schemas, ranges, local input and native parser boundaries by Jason Stys. Index: docs/CODE_INDEX.md."""
+- `tests/test_reports.py` — """Exports, immutable SQL and create-only local CLI by Jason Stys. Index: docs/CODE_INDEX.md."""
+- `tests/test_server.py` — """Real loopback routing, origin and method security by Jason Stys. Index: docs/CODE_INDEX.md."""
+- `tests/ui.spec.ts` — /** Real three-engine calibration workflows by Jason Stys. Functions/variables: docs/CODE_INDEX.md. */
+- `tools/benchmark.py` — """Reviewed calibration contracts and measured resource use by Jason Stys. Index: docs/CODE_INDEX.md.
+- `tools/package_app.py` — """Freeze and verify portable calibration-lab bundles by Jason Stys. Index: docs/CODE_INDEX.md.
+- `tools/prepare_release.py` — """Fail-closed draft release preparation by Jason Stys.
+- `tools/smoke_app.py` — """Exercise a freshly reviewed frozen app by Jason Stys. Functions/variables: docs/CODE_INDEX.md."""
+- `tools/upload_release.py` — """Upload only a freshly smoke-tested native bundle to its draft by Jason Stys.
+- `tools/verify_repo.py` — """Generate/check exact-line code and file inventories by Jason Stys.
+- `tsconfig.json` — Strict TypeScript contracts for browser, unit and end-user test code.
+- `vitest.config.ts` — /** Unit-test boundary by Jason Stys; browser acceptance has its own Playwright runner. */
+- `web/contracts.test.ts` — /** Unit tests for bounded calibration display contracts by Jason Stys. Index: docs/CODE_INDEX.md. */
+- `web/contracts.ts` — /** Calibration evidence guards by Jason Stys; types, fields and functions: docs/CODE_INDEX.md. */
+- `web/env.d.ts` — /** Vite static asset typing by Jason Stys; reference declarations: docs/CODE_INDEX.md. */
+- `web/index.html` — <!-- DATUM sensor instrument by Jason Stys. DOM identifiers: docs/CODE_INDEX.md. -->
+- `web/main.ts` — /** DATUM calibration workbench by Jason Stys. State, functions, fields and DOM: docs/CODE_INDEX.md. */
+- `web/style.css` — /* DATUM instrument design by Jason Stys; selectors/variables: docs/CODE_INDEX.md. */
+- `web/vite.config.ts` — /** Local production asset build by Jason Stys. Configuration variables: docs/CODE_INDEX.md. */
+- `docs/CODE_INDEX.md` — Generated exact-line source inventory.
+- `docs/FILE_CATALOG.md` — This generated complete file index.

@@ -1,0 +1,176 @@
+{
+  "linear-clean": {
+    "fit": {
+      "a": 398.8,
+      "b": 20.024,
+      "chi2_reduced": 0.4547619048,
+      "cov_ab": -0.192,
+      "n": 9,
+      "status": "ok",
+      "var_a": 13.6,
+      "var_b": 0.00384,
+      "xmax": 100,
+      "xmin": 0
+    },
+    "gate": "ok",
+    "summary": {
+      "calibration_excluded": 0,
+      "calibration_used": 9,
+      "checks_used": 5,
+      "estimated": 24,
+      "evaluated_references": 23,
+      "mean_error": 0.005419583456,
+      "missing": 0,
+      "reference_mismatches": 0,
+      "rmse": 0.1214197376,
+      "samples": 24,
+      "saturated": 0,
+      "withheld": 0
+    }
+  },
+  "missing-data": {
+    "fit": {
+      "a": 396.9655172,
+      "b": 20.04965517,
+      "chi2_reduced": 0.4459770115,
+      "cov_ab": -0.2565517241,
+      "n": 7,
+      "status": "ok",
+      "var_a": 19.34482759,
+      "var_b": 0.004634482759,
+      "xmax": 100,
+      "xmin": 0
+    },
+    "gate": "ok",
+    "summary": {
+      "calibration_excluded": 2,
+      "calibration_used": 7,
+      "checks_used": 5,
+      "estimated": 22,
+      "evaluated_references": 21,
+      "mean_error": 0.01867285164,
+      "missing": 2,
+      "reference_mismatches": 0,
+      "rmse": 0.1299989195,
+      "samples": 24,
+      "saturated": 0,
+      "withheld": 2
+    }
+  },
+  "nonlinear-response": {
+    "fit": {
+      "a": 320.9107143,
+      "b": 27.51428571,
+      "chi2_reduced": 105.0104663,
+      "cov_ab": -0.3085714286,
+      "n": 7,
+      "status": "ok",
+      "var_a": 16.71428571,
+      "var_b": 0.008228571429,
+      "xmax": 75,
+      "xmin": 0
+    },
+    "gate": "fit-inconsistent",
+    "summary": {
+      "calibration_excluded": 2,
+      "calibration_used": 7,
+      "checks_used": 4,
+      "estimated": 0,
+      "evaluated_references": 0,
+      "mean_error": null,
+      "missing": 0,
+      "reference_mismatches": 0,
+      "rmse": null,
+      "samples": 24,
+      "saturated": 5,
+      "withheld": 24
+    }
+  },
+  "saturation": {
+    "fit": {
+      "a": 398.8,
+      "b": 20.024,
+      "chi2_reduced": 0.4547619048,
+      "cov_ab": -0.192,
+      "n": 9,
+      "status": "ok",
+      "var_a": 13.6,
+      "var_b": 0.00384,
+      "xmax": 100,
+      "xmin": 0
+    },
+    "gate": "ok",
+    "summary": {
+      "calibration_excluded": 0,
+      "calibration_used": 9,
+      "checks_used": 5,
+      "estimated": 21,
+      "evaluated_references": 20,
+      "mean_error": 0.006771873751,
+      "missing": 0,
+      "reference_mismatches": 0,
+      "rmse": 0.1180041694,
+      "samples": 24,
+      "saturated": 2,
+      "withheld": 3
+    }
+  },
+  "sensor-drift": {
+    "fit": {
+      "a": 398.8,
+      "b": 20.024,
+      "chi2_reduced": 0.4547619048,
+      "cov_ab": -0.192,
+      "n": 9,
+      "status": "ok",
+      "var_a": 13.6,
+      "var_b": 0.00384,
+      "xmax": 100,
+      "xmin": 0
+    },
+    "gate": "ok",
+    "summary": {
+      "calibration_excluded": 0,
+      "calibration_used": 9,
+      "checks_used": 5,
+      "estimated": 23,
+      "evaluated_references": 22,
+      "mean_error": 1.599498783,
+      "missing": 0,
+      "reference_mismatches": 11,
+      "rmse": 2.404122405,
+      "samples": 24,
+      "saturated": 0,
+      "withheld": 1
+    }
+  },
+  "unequal-noise": {
+    "fit": {
+      "a": 397.8078207,
+      "b": 20.08996869,
+      "chi2_reduced": 1.445170544,
+      "cov_ab": -0.4124275751,
+      "n": 9,
+      "status": "ok",
+      "var_a": 22.95687052,
+      "var_b": 0.01705875432,
+      "xmax": 100,
+      "xmin": 0
+    },
+    "gate": "ok",
+    "summary": {
+      "calibration_excluded": 0,
+      "calibration_used": 9,
+      "checks_used": 5,
+      "estimated": 24,
+      "evaluated_references": 23,
+      "mean_error": -0.1123927024,
+      "missing": 0,
+      "reference_mismatches": 0,
+      "rmse": 0.1983183089,
+      "samples": 24,
+      "saturated": 0,
+      "withheld": 0
+    }
+  }
+}
