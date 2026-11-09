@@ -1,5 +1,7 @@
 # Scientific Sensor Calibration Lab · DATUM
 
+Inspect each estimate's [modeled uncertainty budget](docs/UNCERTAINTY_BUDGET.md): response noise, fitted-parameter covariance, variance shares and dominant modeled source. Withheld estimates retain null contributions; the signed covariance cross term is explained without double counting.
+
 An offline calibration workbench by **Jason Stys**. Fit a fictional instrument's response, propagate uncertainty, validate on separate check records, inspect changing offsets and keep missing/saturated data explicit. A C# weighted-fit kernel is checked against a separately implemented exact-rational Python reference on every report.
 
 ![DATUM calibration workbench](docs/images/workbench.png)
