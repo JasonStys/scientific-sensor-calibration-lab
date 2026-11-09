@@ -157,6 +157,12 @@ def analyze(data: dict[str, Any], settings: Settings | None = None) -> dict[str,
         status = signal_status(p, config)
         row = {
             "hour": hour,
+            "response_variance": None,
+            "fit_parameter_variance": None,
+            "fit_covariance_cross_term": None,
+            "response_variance_fraction": None,
+            "fit_variance_fraction": None,
+            "dominant_uncertainty": None,
             "signal_mv": p["signal_uv"] / 1000 if p["signal_uv"] is not None else None,
             "reference": p["reference_milli"] / 1000 if p["reference_milli"] is not None else None,
             "estimate": None,
@@ -176,6 +182,19 @@ def analyze(data: dict[str, Any], settings: Settings | None = None) -> dict[str,
                     fit["b"]
                 )
                 row.update(estimate=x, u=uncertainty, status="estimated")
+                response_variance = (p["u_uv"] / 1000 / fit["b"]) ** 2
+                fit_contribution = fit_variance(fit, x) / fit["b"] ** 2
+                total_variance = response_variance + fit_contribution
+                row.update(
+                    response_variance=response_variance,
+                    fit_parameter_variance=fit_contribution,
+                    fit_covariance_cross_term=2 * x * fit["cov_ab"] / fit["b"] ** 2,
+                    response_variance_fraction=response_variance / total_variance,
+                    fit_variance_fraction=fit_contribution / total_variance,
+                    dominant_uncertainty="response"
+                    if response_variance >= fit_contribution
+                    else "fit",
+                )
                 if row["reference"] is not None:
                     error = x - row["reference"]
                     row.update(error=error, z=error / uncertainty)

@@ -6,6 +6,22 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("#status")).toContainText("Verified");
 });
+test("per-estimate variance budget explains covariance and withheld uncertainty", async ({
+  page,
+  request,
+}) => {
+  await expect(page.locator("#uncertainty-budget")).toContainText("Variance budget");
+  await expect(page.locator("#uncertainty-budget")).toContainText("do not add it again");
+  const run = await (await request.get("/api/run")).json();
+  expect(run.rows[0].response_variance + run.rows[0].fit_parameter_variance).toBeCloseTo(
+    run.rows[0].u ** 2,
+    8,
+  );
+  await page.locator("#age").selectOption("120");
+  await page.getByRole("button", { name: "Analyze calibration" }).click();
+  await expect(page.locator("#status")).toContainText("Verified");
+  await expect(page.locator("#uncertainty-budget")).toContainText("budget withheld");
+});
 test("native verified fit, chart, author and help", async ({ page }) => {
   await expect(page.locator("#gate")).toHaveText("Within checks");
   await expect(page.locator("#available")).toHaveText("24 / 24");

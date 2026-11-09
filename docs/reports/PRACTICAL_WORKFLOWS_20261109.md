@@ -1,0 +1,8 @@
+# Uncertainty-budget validation — 2026-11-09
+
+- Windows / Python3.14.6:285 tests passed,96.72% combined statement/branch coverage. Explicit inverse-gradient arithmetic independently reconciles response noise, signed fit covariance, variance shares and combined u². Missing/rejected estimates retain null budgets; supplied monitoring-reference changes leave uncertainty unchanged.
+- C# kernel rebuilt with stable installed SDK10.0.403, zero warnings/errors; native analytic/strict-parser self-tests and whitespace validation passed. The old exact10.0.402 SDK was absent locally; global.json and all validation/release/CodeQL setup pins now consistently use10.0.403. Target framework/runtime/package lock and numerical kernel are unchanged.
+- Twenty-nine TypeScript unit tests, strict build and39 real-service Chromium/Firefox/WebKit browser tests passed, including variance inspection and expired-calibration withholding, downloads, mobile accessibility, failures and hostile evidence. An initial new test used the wrong button name; it now clicks the existing Analyze calibration control, and the complete suite passed.
+- Ruff, strict mypy, formatting/source indexes, six unchanged native/rational-reference golden cases and locked dependency audits passed (no known Python vulnerabilities; zero npm vulnerabilities).
+
+Modeled standard uncertainty excludes physical reference uncertainty, unmodeled correlations and certification. A negative covariance cross term is already inside fit variance; it must not be added again. Parent handles source review, remote Actions and cross-platform portable builds; this child did not push or trigger workflows.

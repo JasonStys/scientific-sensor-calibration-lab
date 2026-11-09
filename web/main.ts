@@ -366,11 +366,21 @@ function inspect() {
   element("estimate-unit").textContent = current.input.unit;
   element("sample-detail").textContent =
     `Supplied reference: ${number(row.reference)} · estimate − reference: ${number(row.error)} · standardized error: ${number(row.z)}. A supplied reference is separate evaluation evidence, not an input to the inverse correction.`;
+  element("uncertainty-budget").textContent =
+    row.u === null
+      ? "Uncertainty budget withheld with the estimate. Missing, clipped, out-of-span or rejected calibration evidence is not zero uncertainty."
+      : `Variance budget / ${current.input.unit}²: response ${number(row.response_variance)} + fitted parameters ${number(row.fit_parameter_variance)} = combined u² ${number(row.u * row.u)}. Response share ${number((row.response_variance_fraction ?? 0) * 100)}%; fit share ${number((row.fit_variance_fraction ?? 0) * 100)}%. Dominant modeled source: ${row.dominant_uncertainty}. Fit covariance cross term ${number(row.fit_covariance_cross_term)} is already included in fitted-parameter variance and may be negative; do not add it again. This is first-order standard uncertainty, not a certified coverage interval or all physical error sources.`;
 }
 /** Render verified evidence via text nodes and fixed same-origin attachment links. */
 function render(r: Run) {
   current = r;
   evidence.hidden = false;
+  let budget = document.getElementById("uncertainty-budget");
+  if (!budget) {
+    budget = document.createElement("p");
+    budget.id = "uncertainty-budget";
+    element("sample-detail").after(budget);
+  }
   element("gate").textContent = r.gate === "ok" ? "Within checks" : label(r.gate);
   element("available").textContent = `${r.summary.estimated} / ${r.summary.samples}`;
   element("mismatches").textContent = String(r.summary.reference_mismatches);

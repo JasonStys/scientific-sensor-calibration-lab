@@ -8,6 +8,12 @@ export interface Row {
   error: number | null;
   z: number | null;
   status: string;
+  response_variance: number | null;
+  fit_parameter_variance: number | null;
+  fit_covariance_cross_term: number | null;
+  response_variance_fraction: number | null;
+  fit_variance_fraction: number | null;
+  dominant_uncertainty: string | null;
 }
 export interface Run {
   id: string;

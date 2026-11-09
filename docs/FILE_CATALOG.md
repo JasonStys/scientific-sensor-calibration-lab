@@ -20,9 +20,11 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `docs/MODEL.md` — # Calibration model, units and limitations
 - `docs/RELEASE.md` — # Release, acceptance and rollback
 - `docs/THIRD_PARTY.md` — # Third-party notices and provenance
+- `docs/UNCERTAINTY_BUDGET.md` — # Inspect modeled uncertainty contributions
 - `docs/USER_GUIDE.md` — # User guide and troubleshooting
 - `docs/VALIDATION.md` — # Validation strategy and measured evidence
 - `docs/images/workbench.png` — Binary screenshot asset from local application validation
+- `docs/reports/PRACTICAL_WORKFLOWS_20261109.md` — # Uncertainty-budget validation — 2026-11-09
 - `docs/reports/benchmark.json` — Reviewed six-case calibration quality and sample-result contracts.
 - `examples/instrument.json` — Editable strict synthetic calibration/check/sample records with fixed units and provenance.
 - `global.json` — Pinned stable .NET SDK; preview/roll-forward disabled.
@@ -48,6 +50,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `tests/test_inputs.py` — """Strict schemas, ranges, local input and native parser boundaries by Jason Stys. Index: docs/CODE_INDEX.md."""
 - `tests/test_reports.py` — """Exports, immutable SQL and create-only local CLI by Jason Stys. Index: docs/CODE_INDEX.md."""
 - `tests/test_server.py` — """Real loopback routing, origin and method security by Jason Stys. Index: docs/CODE_INDEX.md."""
+- `tests/test_uncertainty_budget.py` — """Independent first-order uncertainty-budget checks by Jason Stys.
 - `tests/ui.spec.ts` — /** Real three-engine calibration workflows by Jason Stys. Functions/variables: docs/CODE_INDEX.md. */
 - `tools/benchmark.py` — """Reviewed calibration contracts and measured resource use by Jason Stys. Index: docs/CODE_INDEX.md.
 - `tools/package_app.py` — """Freeze and verify portable calibration-lab bundles by Jason Stys. Index: docs/CODE_INDEX.md.

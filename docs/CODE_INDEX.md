@@ -182,22 +182,25 @@ Line numbers refer to formatted source, not this generated document.
 | 156 | `variable p` |
 | 157 | `variable status` |
 | 158 | `variable row` |
-| 171 | `variable x` |
-| 175 | `variable uncertainty` |
-| 180 | `variable error` |
-| 185 | `variable errors` |
-| 185 | `variable r` |
-| 186 | `variable estimated` |
-| 186 | `variable r` |
-| 187 | `variable summary` |
-| 191 | `variable r` |
-| 192 | `variable r` |
-| 193 | `variable r` |
-| 198 | `variable e` |
-| 201 | `variable run` |
-| 224 | `variable run` |
-| 229 | `definition build_run` |
-| 229 | `parameter settings` |
+| 177 | `variable x` |
+| 181 | `variable uncertainty` |
+| 185 | `variable response_variance` |
+| 186 | `variable fit_contribution` |
+| 187 | `variable total_variance` |
+| 199 | `variable error` |
+| 204 | `variable errors` |
+| 204 | `variable r` |
+| 205 | `variable estimated` |
+| 205 | `variable r` |
+| 206 | `variable summary` |
+| 210 | `variable r` |
+| 211 | `variable r` |
+| 212 | `variable r` |
+| 217 | `variable e` |
+| 220 | `variable run` |
+| 243 | `variable run` |
+| 248 | `definition build_run` |
+| 248 | `parameter settings` |
 
 ## sensorlab/model.py
 
@@ -540,31 +543,55 @@ Line numbers refer to formatted source, not this generated document.
 | 120 | `variable body` |
 | 120 | `variable status` |
 
+## tests/test_uncertainty_budget.py
+
+| Line | Definition / variable / structural identifier |
+| --- | --- |
+| 14 | `definition test_variance_budget_matches_independent_inverse_gradient` |
+| 16 | `variable run` |
+| 17 | `variable fit` |
+| 18 | `variable row` |
+| 18 | `variable supplied` |
+| 19 | `variable b` |
+| 19 | `variable x` |
+| 20 | `variable response` |
+| 21 | `variable parameters` |
+| 31 | `definition test_withheld_budget_and_reference_isolation` |
+| 33 | `variable scenario` |
+| 34 | `variable run` |
+| 36 | `variable row` |
+| 38 | `variable data` |
+| 39 | `variable other` |
+| 41 | `variable after` |
+| 41 | `variable before` |
+| 42 | `variable key` |
+
 ## tests/ui.spec.ts
 
 | Line | Definition / variable / structural identifier |
 | --- | --- |
-| 15 | `pixels` |
-| 16 | `ctx` |
-| 17 | `data` |
-| 18 | `n` |
-| 19 | `i` |
-| 30 | `original` |
-| 39 | `kind` |
-| 40 | `waiting` |
-| 45 | `download` |
-| 46 | `path` |
-| 48 | `body` |
-| 50 | `r` |
-| 103 | `release` |
-| 104 | `held` |
-| 105 | `release` |
-| 107 | `started` |
-| 108 | `entered` |
-| 111 | `response` |
-| 124 | `response` |
-| 125 | `run` |
-| 141 | `result` |
+| 15 | `run` |
+| 31 | `pixels` |
+| 32 | `ctx` |
+| 33 | `data` |
+| 34 | `n` |
+| 35 | `i` |
+| 46 | `original` |
+| 55 | `kind` |
+| 56 | `waiting` |
+| 61 | `download` |
+| 62 | `path` |
+| 64 | `body` |
+| 66 | `r` |
+| 119 | `release` |
+| 120 | `held` |
+| 121 | `release` |
+| 123 | `started` |
+| 124 | `entered` |
+| 127 | `response` |
+| 140 | `response` |
+| 141 | `run` |
+| 157 | `result` |
 
 ## tools/benchmark.py
 
@@ -785,46 +812,52 @@ Line numbers refer to formatted source, not this generated document.
 | 8 | `error` |
 | 9 | `z` |
 | 10 | `status` |
-| 12 | `Run` |
-| 13 | `id` |
-| 14 | `name` |
-| 15 | `settings` |
-| 16 | `input` |
-| 17 | `unit` |
-| 18 | `provenance` |
-| 19 | `config` |
-| 21 | `fit` |
-| 22 | `status` |
-| 23 | `n` |
-| 24 | `a` |
-| 25 | `b` |
-| 26 | `var_a` |
-| 27 | `var_b` |
-| 28 | `cov_ab` |
-| 29 | `chi2_reduced` |
-| 30 | `xmin` |
-| 31 | `xmax` |
-| 33 | `gate` |
-| 34 | `rows` |
-| 35 | `calibration_rows` |
-| 36 | `index` |
-| 37 | `x` |
-| 38 | `y_mv` |
-| 39 | `u_mv` |
-| 40 | `status` |
-| 41 | `predicted_mv` |
-| 42 | `residual_mv` |
-| 44 | `check_rows` |
-| 45 | `summary` |
-| 46 | `verification` |
-| 48 | `statuses` |
-| 62 | `finite` |
-| 66 | `parseRun` |
-| 67 | `r` |
-| 95 | `key` |
-| 152 | `keys` |
-| 181 | `number` |
-| 187 | `label` |
+| 11 | `response_variance` |
+| 12 | `fit_parameter_variance` |
+| 13 | `fit_covariance_cross_term` |
+| 14 | `response_variance_fraction` |
+| 15 | `fit_variance_fraction` |
+| 16 | `dominant_uncertainty` |
+| 18 | `Run` |
+| 19 | `id` |
+| 20 | `name` |
+| 21 | `settings` |
+| 22 | `input` |
+| 23 | `unit` |
+| 24 | `provenance` |
+| 25 | `config` |
+| 27 | `fit` |
+| 28 | `status` |
+| 29 | `n` |
+| 30 | `a` |
+| 31 | `b` |
+| 32 | `var_a` |
+| 33 | `var_b` |
+| 34 | `cov_ab` |
+| 35 | `chi2_reduced` |
+| 36 | `xmin` |
+| 37 | `xmax` |
+| 39 | `gate` |
+| 40 | `rows` |
+| 41 | `calibration_rows` |
+| 42 | `index` |
+| 43 | `x` |
+| 44 | `y_mv` |
+| 45 | `u_mv` |
+| 46 | `status` |
+| 47 | `predicted_mv` |
+| 48 | `residual_mv` |
+| 50 | `check_rows` |
+| 51 | `summary` |
+| 52 | `verification` |
+| 54 | `statuses` |
+| 68 | `finite` |
+| 72 | `parseRun` |
+| 73 | `r` |
+| 101 | `key` |
+| 158 | `keys` |
+| 187 | `number` |
+| 193 | `label` |
 
 ## web/env.d.ts
 
@@ -932,22 +965,24 @@ Line numbers refer to formatted source, not this generated document.
 | 344 | `r` |
 | 358 | `inspect` |
 | 360 | `row` |
-| 371 | `render` |
-| 372 | `current` |
-| 388 | `tr` |
-| 389 | `text` |
-| 390 | `td` |
-| 403 | `a` |
-| 404 | `q` |
-| 419 | `run` |
-| 420 | `version` |
-| 421 | `current` |
-| 426 | `response` |
-| 428 | `data` |
-| 435 | `current` |
-| 445 | `run` |
-| 449 | `current` |
+| 375 | `render` |
+| 376 | `current` |
+| 378 | `budget` |
+| 380 | `budget` |
+| 398 | `tr` |
+| 399 | `text` |
+| 400 | `td` |
+| 413 | `a` |
+| 414 | `q` |
+| 429 | `run` |
+| 430 | `version` |
+| 431 | `current` |
+| 436 | `response` |
+| 438 | `data` |
+| 445 | `current` |
 | 455 | `run` |
+| 459 | `current` |
+| 465 | `run` |
 
 ## web/style.css
 
