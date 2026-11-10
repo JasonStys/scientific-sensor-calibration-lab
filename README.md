@@ -8,7 +8,7 @@ An offline calibration workbench by **Jason Stys**. Fit a fictional instrument's
 
 ## Run it
 
-[Download a portable release](https://github.com/JasonStys/scientific-sensor-calibration-lab/releases), verify its adjacent SHA-256 checksum, and extract the **whole** ZIP. Launch `ScientificSensorCalibrationLab` (Windows:`.exe`) to open the local browser UI. Keep `_internal` with the executable; Ctrl+C in its console stops it. Portable apps include Python and the C# runtime: no developer setup, account, Docker, elevation or public hosting is required. Releases target desktop Windows x64, Linux x64 and macOS arm64—not every OS/version or native mobile installation. Builds are unsigned: follow OS/organization policy and do not disable security protections.
+[Download a portable release](https://github.com/JasonStys/scientific-sensor-calibration-lab/releases), verify its adjacent SHA-256 checksum, and extract the **whole** archive. Launch `ScientificSensorCalibrationLab` (Windows:`.exe`) to open the local browser UI. Keep `_internal` with the executable; Ctrl+C in its console stops it. Portable apps include Python and the C# runtime: no developer setup, account, Docker, elevation or public hosting is required. Releases target desktop Windows x64, Linux x64 and macOS arm64—not every OS/version or native mobile installation. Builds are unsigned: follow OS/organization policy and do not disable security protections.
 
 Source setup requires Python3.12–3.14, Node24 and the stable .NET SDK in `global.json`:
 
@@ -75,3 +75,16 @@ Main files: `calibration-core/Program.cs` provides the bounded native fit/parser
 Synthetic scientific education only. No real hardware collection/control, accredited calibration, physical traceability, certified coverage interval, arbitrary nonlinear curves, reference-input uncertainty, correlated noise, automatic causal drift diagnosis or safety-critical use. An internally verified computation can still describe the wrong real-world model. Do not calibrate/qualify real equipment from these invented examples.
 
 Created by [Jason Stys](https://github.com/JasonStys). [Questions/issues](https://github.com/JasonStys/scientific-sensor-calibration-lab/issues) · [LinkedIn](https://www.linkedin.com/in/jason-stys-31b30b351/). No government, employer, laboratory or equipment-vendor endorsement. MIT source; retain bundled runtime notices.
+
+## Portable release identity
+
+The 1.1 release contract keeps the software version consistent across Python, npm, the
+running service and the UI. Versioned archives include `RELEASE.json` with source commit,
+platform and clean/dirty build status. Packaging tests the **freshly extracted** application,
+including its new practical workflow, from an unrelated temporary working directory.
+Windows uses ZIP; Linux/macOS use `.tar.gz` to preserve required native links and permissions.
+Published 1.0 assets remain unchanged. Check the selected release's source and version rather
+than assuming an older download contains current source improvements. See the
+[portable operation and release guide](docs/RELEASE.md).
+
+Observed local packaging checks and boundaries: [portable1.1 validation](docs/reports/PORTABLE_RELEASE_20261109.md).

@@ -1,5 +1,6 @@
 /** DATUM calibration workbench by Jason Stys. State, functions, fields and DOM: docs/CODE_INDEX.md. */
 import "./style.css";
+import { appendReleaseVersion } from "./release-version";
 import { label, number, parseRun, type Run } from "./contracts";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = /* HTML */ ` <a
@@ -463,3 +464,5 @@ form.addEventListener("change", () => {
 });
 element("hour").addEventListener("input", inspect);
 void run();
+
+appendReleaseVersion();
