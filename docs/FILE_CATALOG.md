@@ -18,12 +18,13 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `docs/API.md` — # Local API and strict input
 - `docs/ARCHITECTURE.md` — # Architecture and decisions
 - `docs/MODEL.md` — # Calibration model, units and limitations
-- `docs/RELEASE.md` — # Release, acceptance and rollback
+- `docs/RELEASE.md` — # Portable application and release runbook
 - `docs/THIRD_PARTY.md` — # Third-party notices and provenance
 - `docs/UNCERTAINTY_BUDGET.md` — # Inspect modeled uncertainty contributions
 - `docs/USER_GUIDE.md` — # User guide and troubleshooting
 - `docs/VALIDATION.md` — # Validation strategy and measured evidence
 - `docs/images/workbench.png` — Binary screenshot asset from local application validation
+- `docs/reports/PORTABLE_RELEASE_20261109.md` — # Portable 1.1 release validation — 2026-11-09
 - `docs/reports/PRACTICAL_WORKFLOWS_20261109.md` — # Uncertainty-budget validation — 2026-11-09
 - `docs/reports/benchmark.json` — Reviewed six-case calibration quality and sample-result contracts.
 - `examples/instrument.json` — Editable strict synthetic calibration/check/sample records with fixed units and provenance.
@@ -42,21 +43,30 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `sensorlab/__main__.py` — """Local calibration-lab CLI by Jason Stys. Function main and argument locations: docs/CODE_INDEX.md.
 - `sensorlab/engine.py` — """Native/reference verification, uncertainty and evidence gates by Jason Stys.
 - `sensorlab/model.py` — """Strict synthetic calibration inputs by Jason Stys. Settings, configuration, validate and loaders:
+- `sensorlab/package_info.py` — Bounded frozen release identity; source mode never borrows a packaged-source claim.
 - `sensorlab/reference.py` — """Independent exact-rational weighted-fit reference by Jason Stys. Functions/variables: docs/CODE_INDEX.md.
 - `sensorlab/reports.py` — """Inert evidence exports and optional private history by Jason Stys.
 - `sensorlab/resources/history.sql` — -- Immutable local synthetic calibration evidence by Jason Stys; identifiers: docs/CODE_INDEX.md.
 - `sensorlab/server.py` — """Loopback-only, read-only HTTP application by Jason Stys; not an Internet server.
 - `tests/test_calibration.py` — """Analytical, differential and quality-gate contracts by Jason Stys. Function/variable index: docs/CODE_INDEX.md."""
 - `tests/test_inputs.py` — """Strict schemas, ranges, local input and native parser boundaries by Jason Stys. Index: docs/CODE_INDEX.md."""
+- `tests/test_package_info.py` — Frozen metadata corruption, explicit source mode and pre-bind owned-instance marker regressions.
+- `tests/test_portable_archive.py` — Actual archive bytes, traversal/link/type/budget/permission and extraction regression cases.
+- `tests/test_release_contract.py` — Independent negative source/version/prerequisite/draft/hash/upload authorization cases.
 - `tests/test_reports.py` — """Exports, immutable SQL and create-only local CLI by Jason Stys. Index: docs/CODE_INDEX.md."""
 - `tests/test_server.py` — """Real loopback routing, origin and method security by Jason Stys. Index: docs/CODE_INDEX.md."""
 - `tests/test_uncertainty_budget.py` — """Independent first-order uncertainty-budget checks by Jason Stys.
 - `tests/ui.spec.ts` — /** Real three-engine calibration workflows by Jason Stys. Functions/variables: docs/CODE_INDEX.md. */
 - `tools/benchmark.py` — """Reviewed calibration contracts and measured resource use by Jason Stys. Index: docs/CODE_INDEX.md.
+- `tools/legacy_smoke.py` — Preserved native domain CLI, resource, license, persistence and HTTP acceptance under active guards.
+- `tools/native_browser.mjs` — Owned Chromium context, local resource boundary, version and real-error acceptance.
+- `tools/native_feature_smoke.mjs` — Actual extracted-application new-feature UI/API/download acceptance with independent arithmetic.
 - `tools/package_app.py` — """Freeze and verify portable calibration-lab bundles by Jason Stys. Index: docs/CODE_INDEX.md.
-- `tools/prepare_release.py` — """Fail-closed draft release preparation by Jason Stys.
-- `tools/smoke_app.py` — """Exercise a freshly reviewed frozen app by Jason Stys. Functions/variables: docs/CODE_INDEX.md."""
-- `tools/upload_release.py` — """Upload only a freshly smoke-tested native bundle to its draft by Jason Stys.
+- `tools/portable_archive.py` — Bounded Windows ZIP/POSIX tar creation, metadata inspection and fresh safe extraction.
+- `tools/prepare_release.py` — """Prepare only a new version/source-bound draft by Jason Stys.
+- `tools/release_contract.py` — Version/source coherence, exact-main prerequisites and immutable draft upload guards.
+- `tools/smoke_app.py` — """Actual extracted-executable CLI, HTTP and Chromium acceptance by Jason Stys.
+- `tools/upload_release.py` — """Upload one inspected source/version archive pair by Jason Stys.
 - `tools/verify_repo.py` — """Generate/check exact-line code and file inventories by Jason Stys.
 - `tsconfig.json` — Strict TypeScript contracts for browser, unit and end-user test code.
 - `vitest.config.ts` — /** Unit-test boundary by Jason Stys; browser acceptance has its own Playwright runner. */
@@ -65,7 +75,8 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `web/env.d.ts` — /** Vite static asset typing by Jason Stys; reference declarations: docs/CODE_INDEX.md. */
 - `web/index.html` — <!-- DATUM sensor instrument by Jason Stys. DOM identifiers: docs/CODE_INDEX.md. -->
 - `web/main.ts` — /** DATUM calibration workbench by Jason Stys. State, functions, fields and DOM: docs/CODE_INDEX.md. */
+- `web/release-version.ts` — Canonical bundled application version rendered from package.json without remote lookup.
 - `web/style.css` — /* DATUM instrument design by Jason Stys; selectors/variables: docs/CODE_INDEX.md. */
-- `web/vite.config.ts` — /** Local production asset build by Jason Stys. Configuration variables: docs/CODE_INDEX.md. */
+- `web/vite.config.ts` — /** Canonical local asset/release build by Jason Stys; symbols: docs/CODE_INDEX.md. */
 - `docs/CODE_INDEX.md` — Generated exact-line source inventory.
 - `docs/FILE_CATALOG.md` — This generated complete file index.

@@ -1,7 +1,7 @@
 # Jason Stys: bounded synthetic calibration and independent C#/rational verification.
 [project]
 name = "scientific-sensor-calibration-lab"
-version = "1.0.0"
+version = "1.1.0"
 description = "Offline weighted sensor calibration, uncertainty and evidence by Jason Stys"
 requires-python = ">=3.12,<3.15"
 dependencies = []
@@ -24,3 +24,9 @@ show_missing = true
 strict = true
 python_version = "3.12"
 files = ["sensorlab"]
+
+[tool.portable]
+package = "sensorlab"
+executable = "ScientificSensorCalibrationLab"
+title = "Scientific Sensor Calibration Lab"
+workflows = ["validate.yml", "codeql.yml"]

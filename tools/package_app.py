@@ -3,19 +3,38 @@
 Function main; variables: fixed resources, notice paths, executable, archive digest. No installer/elevation.
 """
 
+import argparse
 import hashlib
 import json
 import platform
 import shutil
 import subprocess
 import sys
+import tempfile
 from importlib.metadata import distribution
 from pathlib import Path
 
+if __package__:
+    from .portable_archive import archive_metadata, create_archive, extract_archive
+    from .release_contract import ROOT, asset_paths, configuration, require, source_metadata
+else:
+    from portable_archive import archive_metadata, create_archive, extract_archive
+    from release_contract import ROOT, asset_paths, configuration, require, source_metadata
 
-def main() -> None:
-    """Include production assets, SQL and actual runtime notices; smoke before creating an unsigned ZIP."""
+
+def main() -> int:
+    """Freeze production assets with required notices, then accept a safely extracted archive."""
     root = Path(__file__).resolve().parents[1]
+    parser = argparse.ArgumentParser(
+        description="Build and accept the extracted portable application"
+    )
+    parser.add_argument("--output-root", type=Path, default=ROOT / "dist")
+    args = parser.parse_args()
+    config, metadata = configuration(), source_metadata()
+    generated = root / ".runtime/package-meta"
+    generated.mkdir(parents=True, exist_ok=True)
+    identity = generated / "RELEASE.json"
+    identity.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
     if not (root / "web/dist/index.html").is_file():
         raise SystemExit("Build production assets first")
     rid = {"Windows": "win-x64", "Linux": "linux-x64", "Darwin": "osx-arm64"}[platform.system()]
@@ -118,30 +137,42 @@ def main() -> None:
                 ["--add-data", str(source) + ":licenses/compiler-runtime/" + source.parent.name]
             )
     command.append("launcher.py")
+    command[command.index("launcher.py") : command.index("launcher.py")] = [
+        "--add-data",
+        str(identity) + ":sensorlab/resources",
+    ]
     subprocess.run(command, cwd=root, check=True, timeout=600)
-    executable = (
-        root
-        / "dist/ScientificSensorCalibrationLab"
-        / (
-            "ScientificSensorCalibrationLab.exe"
-            if sys.platform == "win32"
-            else "ScientificSensorCalibrationLab"
+    executable_name = config["executable"]
+    bundle = root / "dist" / executable_name
+    shutil.copyfile(identity, bundle / "RELEASE.json")
+    archive, checksum = asset_paths(metadata)
+    archive, checksum = (
+        args.output_root.resolve() / archive.name,
+        args.output_root.resolve() / checksum.name,
+    )
+    archive.parent.mkdir(parents=True, exist_ok=True)
+    require(not checksum.exists(), "Checksum destination already exists")
+    create_archive(bundle, archive)
+    require(
+        archive_metadata(archive, executable_name) == metadata, "Created archive identity mismatch"
+    )
+    with tempfile.TemporaryDirectory(
+        prefix="scientific-sensor-calibration-lab-extracted-"
+    ) as temporary:
+        extracted = extract_archive(archive, Path(temporary) / "unpacked", executable_name)
+        executable = extracted / (executable_name + (".exe" if sys.platform == "win32" else ""))
+        subprocess.run(
+            [sys.executable, str(root / "tools/smoke_app.py"), str(executable)],
+            cwd=temporary,
+            check=True,
+            timeout=120,
         )
-    )
-    subprocess.run(
-        [sys.executable, "tools/smoke_app.py", str(executable)], cwd=root, check=True, timeout=120
-    )
-    slug = f"scientific-sensor-calibration-lab-{platform.system().lower()}-{platform.machine().lower()}"
-    archive = Path(
-        shutil.make_archive(
-            str(root / "dist" / slug), "zip", root / "dist", "ScientificSensorCalibrationLab"
-        )
-    )
-    with archive.open("rb") as stream:
-        digest = hashlib.file_digest(stream, "sha256").hexdigest()
-    (root / "dist" / (slug + ".sha256")).write_text(f"{digest}  {archive.name}\n", encoding="utf-8")
-    print(f"Verified portable bundle: {archive.name} SHA-256 {digest}")
+    with archive.open("rb") as source:
+        digest = hashlib.file_digest(source, "sha256").hexdigest()
+    checksum.write_text(f"{digest}  {archive.name}\n", encoding="utf-8")
+    print(f"Extracted portable application passed: {archive.name} SHA-256 {digest}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
