@@ -8,7 +8,7 @@ An offline calibration workbench by **Jason Stys**. Fit a fictional instrument's
 
 ## Run it
 
-[Download a portable release](https://github.com/JasonStys/scientific-sensor-calibration-lab/releases), verify its adjacent SHA-256 checksum, and extract the **whole** archive. Launch `ScientificSensorCalibrationLab` (Windows:`.exe`) to open the local browser UI. Keep `_internal` with the executable; Ctrl+C in its console stops it. Portable apps include Python and the C# runtime: no developer setup, account, Docker, elevation or public hosting is required. Releases target desktop Windows x64, Linux x64 and macOS arm64—not every OS/version or native mobile installation. Builds are unsigned: follow OS/organization policy and do not disable security protections.
+[Download a portable release](https://github.com/JasonStys/scientific-sensor-calibration-lab/releases), verify its adjacent SHA-256 checksum, and extract the **whole** archive. Launch `ScientificSensorCalibrationLab` (Windows: `.exe`) to open the local browser UI. Keep `_internal` with the executable; Ctrl+C in its console stops it. Portable apps include Python and the C# runtime: no developer setup, account, Docker, elevation or public hosting is required. Releases target desktop Windows x64, Linux x64 and macOS arm64—not every OS/version or native mobile installation. Builds are unsigned: follow OS/organization policy and do not disable security protections.
 
 Source setup requires Python3.12–3.14, Node24 and the stable .NET SDK in `global.json`:
 
@@ -26,7 +26,7 @@ python -m sensorlab serve
 ## Features and engineering evidence
 
 - Known-response-variance linear calibration: coefficients, covariance, residuals and reduced chi-square, without silently rescaling uncertainties to hide misfit.
-- Six synthetic scenarios: stable response, unequal uncertainty, changing offset, electronics clipping/range, missing data and unsupported nonlinearity.162 finite control combinations.
+- Six synthetic scenarios: stable response, unequal uncertainty, changing offset, electronics clipping/range, missing data and unsupported nonlinearity. 162 finite control combinations.
 - Separate fit/check/monitoring records. Checks and monitoring references never influence fit coefficients. Reference-mismatch flags are evidence for human review, not a causal fault diagnosis.
 - Explicit withheld estimates for missing/saturated signals, insufficient calibration/span, near-zero sensitivity, inconsistent fit, failed checks, expired calibration and extrapolation.
 - Combined **standard** uncertainty from first-order inverse propagation, with assumptions and omitted sources visible—not a certified confidence interval.
@@ -34,7 +34,7 @@ python -m sensorlab serve
 - Full JSON evidence, inert HTML, sample CSV, replayable strict input and opt-in immutable SQLite history.
 - Cross-platform tests, pinned tools/Actions, three-language CodeQL, independently verified native fit and portable app acceptance. No Actions artifact/cache uploads.
 
-The default synthetic case fits `response/mV = 398.8 + 20.024 × reference/degC`; all24 samples receive estimates,23 have supplied evaluation references, and their corrected RMSE is approximately0.12142degC. These are invented demonstration results, not an instrument specification. The nonlinear case deliberately fails fit adequacy; rejected estimates do not become a misleading zero RMSE. See [case contracts](docs/reports/benchmark.json).
+The default synthetic case fits `response/mV = 398.8 + 20.024 × reference/degC`; all24 samples receive estimates, 23 have supplied evaluation references, and their corrected RMSE is approximately 0.12142 degC. These are invented demonstration results, not an instrument specification. The nonlinear case deliberately fails fit adequacy; rejected estimates do not become a misleading zero RMSE. See [case contracts](docs/reports/benchmark.json).
 
 ```text
 python -m sensorlab export --format input --output editable.json
@@ -92,3 +92,9 @@ Observed local packaging checks and boundaries: [portable 1.1 validation](docs/r
 Draft discovery uses a bounded complete authenticated release listing and numeric-ID
 verification; a published-only tag lookup cannot prove that an untagged draft is absent.
 The release guide documents fail-closed ambiguity/history limits and the no-overwrite policy.
+
+## Documentation editions
+
+Start with the [organized handbook](docs/handbook.md) for current usage, design, security and test guidance. Reviewed downloadable editions: [project-guide.docx](docs/reports/project-guide.docx) · [validation-review.docx](docs/reports/validation-review.docx) · [validation-evidence.xlsx](docs/reports/validation-evidence.xlsx).
+
+[Publication identities and source scope](docs/reports/publications.json) · [Documentation validation record](docs/reports/documentation-refresh-2026-11-09.md). Historical results retain their own tested revision and date.
