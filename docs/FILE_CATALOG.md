@@ -23,10 +23,16 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `docs/UNCERTAINTY_BUDGET.md` — # Inspect modeled uncertainty contributions
 - `docs/USER_GUIDE.md` — # User guide and troubleshooting
 - `docs/VALIDATION.md` — # Validation strategy and measured evidence
+- `docs/handbook.md` — # Scientific Sensor Calibration Lab · DATUM handbook
 - `docs/images/workbench.png` — Binary screenshot asset from local application validation
 - `docs/reports/PORTABLE_RELEASE_20261109.md` — # Portable 1.1 release validation — 2026-11-09
 - `docs/reports/PRACTICAL_WORKFLOWS_20261109.md` — # Uncertainty-budget validation — 2026-11-09
 - `docs/reports/benchmark.json` — Reviewed six-case calibration quality and sample-result contracts.
+- `docs/reports/documentation-refresh-2026-11-09.md` — # Documentation refresh — 2026-11-09
+- `docs/reports/project-guide.docx` — Reviewed Word project guide bound to the documented source revision.
+- `docs/reports/publications.json` — Exact Office publication identities, approved page/tab scopes and immutable source baselines.
+- `docs/reports/validation-evidence.xlsx` — Reviewed Excel workflow and test-source Tables with recalculated outcome formulas.
+- `docs/reports/validation-review.docx` — Reviewed Word validation evidence and explicit test/analysis limitations.
 - `examples/instrument.json` — Editable strict synthetic calibration/check/sample records with fixed units and provenance.
 - `global.json` — Pinned stable .NET SDK; preview/roll-forward disabled.
 - `launcher.py` — """Portable local application entry by Jason Stys; main contract: docs/CODE_INDEX.md."""
@@ -53,6 +59,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `tests/test_inputs.py` — """Strict schemas, ranges, local input and native parser boundaries by Jason Stys. Index: docs/CODE_INDEX.md."""
 - `tests/test_package_info.py` — Frozen metadata corruption, explicit source mode and pre-bind owned-instance marker regressions.
 - `tests/test_portable_archive.py` — Actual archive bytes, traversal/link/type/budget/permission and extraction regression cases.
+- `tests/test_publication_text.py` — """Jason Stys: actual Office ZIP fixtures retain text scanning and reject unknown content.
 - `tests/test_release_contract.py` — Independent negative source/version/prerequisite/draft/hash/upload authorization cases.
 - `tests/test_reports.py` — """Exports, immutable SQL and create-only local CLI by Jason Stys. Index: docs/CODE_INDEX.md."""
 - `tests/test_server.py` — """Real loopback routing, origin and method security by Jason Stys. Index: docs/CODE_INDEX.md."""
@@ -66,6 +73,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `tools/package_app.py` — """Freeze and verify portable calibration-lab bundles by Jason Stys. Index: docs/CODE_INDEX.md.
 - `tools/portable_archive.py` — Bounded Windows ZIP/POSIX tar creation, metadata inspection and fresh safe extraction.
 - `tools/prepare_release.py` — """Prepare only a new version/source-bound draft by Jason Stys.
+- `tools/publication_text.py` — """Jason Stys: inspect only named reviewed Office editions without hiding their XML.
 - `tools/release_contract.py` — Version/source coherence, exact-main prerequisites and immutable draft upload guards.
 - `tools/smoke_app.py` — """Actual extracted-executable CLI, HTTP and Chromium acceptance by Jason Stys.
 - `tools/upload_release.py` — """Upload one inspected source/version archive pair by Jason Stys.

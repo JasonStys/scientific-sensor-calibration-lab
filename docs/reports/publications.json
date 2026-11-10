@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "project": "scientific-sensor-calibration-lab",
+  "author": "Jason Stys",
+  "editionDate": "2026-11-09",
+  "sourceBaseline": "1bdb2244451af67d90600e60c566435b66ea2bd0",
+  "sourceUrl": "https://github.com/JasonStys/scientific-sensor-calibration-lab/tree/1bdb2244451af67d90600e60c566435b66ea2bd0",
+  "functionalEvidenceBaseline": "1bdb2244451af67d90600e60c566435b66ea2bd0",
+  "evidenceObservedAt": "2026-11-10T05:25:40.628667+00:00",
+  "workflowEvidence": [
+    {
+      "conclusion": "success",
+      "databaseId": 42752670682,
+      "event": "push",
+      "headSha": "1bdb2244451af67d90600e60c566435b66ea2bd0",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/scientific-sensor-calibration-lab/actions/runs/42752670682"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42752670659,
+      "event": "push",
+      "headSha": "1bdb2244451af67d90600e60c566435b66ea2bd0",
+      "name": "Validation",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/scientific-sensor-calibration-lab/actions/runs/42752670659"
+    }
+  ],
+  "summary": "Review per-estimate variance budgets, missing samples and expired-calibration withholding in the 1.1 portable calibration workflow.",
+  "rationale": "Bundles the native fit/runtime with a practical uncertainty review and export path, tested against actual compiled execution and independent arithmetic after extraction.",
+  "limitations": [
+    "Modeled standard uncertainty excludes physical reference uncertainty, unmodeled correlations and certification.",
+    "The signed covariance cross term is already inside fit variance; withheld estimates have no invented uncertainty budget.",
+    "Synthetic local instrument examples and unsigned desktop portable packages; no system installer, real instrument connection or certified measurement service."
+  ],
+  "documents": [
+    {
+      "filename": "project-guide.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 82738,
+      "sha256": "846ae95c7f14e24eb6bbf10fd18daecd0a6dbb4a8d027cd1e758f23526263afe",
+      "sourceBaseline": "1bdb2244451af67d90600e60c566435b66ea2bd0",
+      "visualReview": {
+        "approved": true,
+        "method": "Every rendered page individually viewed at readable original resolution",
+        "pageCount": 4,
+        "renderedPageSha256": {
+          "page-1.png": "37ccd1da58ae915246bd05ab94a38411946f92965de5fbf4c3b5fe7116568fb4",
+          "page-2.png": "caa5d5d1992de0a4b642159551b88744eb424966187cf368f15d78a53bfb0f36",
+          "page-3.png": "d47e4367244762a776b131727dfe824472fc307554e217ff40714a1fa26de595",
+          "page-4.png": "caedc6477977c5b659664d2e95cd3cb31e6f9f0c94ee9f9e0c40f1d908f5eb3b"
+        }
+      }
+    },
+    {
+      "filename": "validation-review.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 43612,
+      "sha256": "d2ff152182347f251f1c310c16edd8972d60d6451b61c91b05d9edd3ad4d28c2",
+      "sourceBaseline": "1bdb2244451af67d90600e60c566435b66ea2bd0",
+      "visualReview": {
+        "approved": true,
+        "method": "Every rendered page individually viewed at readable original resolution",
+        "pageCount": 4,
+        "renderedPageSha256": {
+          "page-1.png": "26354095af95ec986fcbebde9189e3d69a2002b1cf9b8fa003ac08cb44f34b42",
+          "page-2.png": "3791de53d0135270a2fd256e711707dc9c7ab1280479b4b672016f180ba532e0",
+          "page-3.png": "10fa5788cbe43efabe37f9defa3fa57e174a4aec8643691f22b0e4bf3741cb17",
+          "page-4.png": "7828a837932156bae85df754102f60dbd2f470eed2e5f540fe450a73ab78cb07"
+        }
+      }
+    },
+    {
+      "filename": "validation-evidence.xlsx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "bytes": 7425,
+      "sha256": "bccd626774400ff04028b48fcb3d6c0f977c2e85d9c0178660bd37d325d7a243",
+      "sourceBaseline": "1bdb2244451af67d90600e60c566435b66ea2bd0",
+      "visualReview": {
+        "approved": true,
+        "tabsReviewed": ["Test sources", "Workflow evidence"],
+        "previewSha256": {
+          "Workflow evidence": "7d13aee59339f4f55b46775e4c12010ec629609fd5504757fa9283f5d943d01e",
+          "Test sources": "e0e6ebedfe6c33e82c7b57ed68db29753065c73c3d3fa76db7dfb5efbf8ee0e1"
+        },
+        "tables": [
+          {
+            "path": "xl/tables/table1.xml",
+            "name": "WorkflowEvidence",
+            "range": "A7:D9",
+            "columns": 4,
+            "autoFilter": true,
+            "filterButtonsEnabled": true
+          },
+          {
+            "path": "xl/tables/table2.xml",
+            "name": "TestSources",
+            "range": "A7:C18",
+            "columns": 3,
+            "autoFilter": true,
+            "filterButtonsEnabled": true
+          }
+        ],
+        "formulaCount": 4,
+        "failureSensitivityReceiptPassed": true,
+        "formulaErrors": []
+      }
+    }
+  ],
+  "scope": "Reviewed documentation editions of the cited source. Checksums identify bytes, not authorship. Historical measurements retain their own dates; integration CI must be checked separately."
+}

@@ -64,13 +64,12 @@ Their required hosted native jobs separately rebuild, extract and exercise each 
 
 Restricted-shell HTTP tests failed with WinError10013 before reaching disposable listeners.
 The unchanged suites passed in normal-user loopback scope; no warning or coverage gate was
-weakened. The local Rust driver uses the existing explicit pinned toolchain rather than
-assuming Windows subprocess lookup honors a child-only PATH.
+weakened. Other projects in the same validation batch also required explicit pinned Rust-toolchain lookup. This sensor application uses its C# fit kernel; that Rust correction is not a sensor runtime feature.
 
 New acceptance initially retained Flight-specific nominal/reset/240-tick checks from the
 shared pilot, which are not APIs of this application. Those were replaced by this domain's
 new-feature oracle and its preserved original smoke. The authored HTML title, not the release
-display title, identifies compiled HTML. Sensor/Reactor button lookup used the existing
+display title, identifies compiled HTML. The Sensor button lookup used the existing
 accessible names including their arrow decoration. Failures were not accepted as passes;
 corrected checks ran against fresh extracted artifacts. Private failed evidence remains
 outside the repository. No application numerical algorithm was changed to satisfy the harness.
@@ -81,7 +80,7 @@ and complete extracted-smoke 120-second hard deadlines remain bounded, without t
 
 ## Draft lookup correction and independent verification
 
-The first Earth Observation 1.1 release attempt passed its macOS extracted native/browser
+In the shared release transport, the first Earth Observation 1.1 release attempt passed its macOS extracted native/browser
 journey, then failed during upload because GitHub's release-by-tag REST endpoint returns
 **published** releases. An untagged draft existed in the authenticated release list and
 could be read by numeric ID, while that tag endpoint returned 404. This was a release-tooling
