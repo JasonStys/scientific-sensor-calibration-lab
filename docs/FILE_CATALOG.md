@@ -49,6 +49,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `sensorlab/resources/history.sql` — -- Immutable local synthetic calibration evidence by Jason Stys; identifiers: docs/CODE_INDEX.md.
 - `sensorlab/server.py` — """Loopback-only, read-only HTTP application by Jason Stys; not an Internet server.
 - `tests/test_calibration.py` — """Analytical, differential and quality-gate contracts by Jason Stys. Function/variable index: docs/CODE_INDEX.md."""
+- `tests/test_draft_lookup.py` — Independent draft/public/pagination/identity and transport-failure lookup cases.
 - `tests/test_inputs.py` — """Strict schemas, ranges, local input and native parser boundaries by Jason Stys. Index: docs/CODE_INDEX.md."""
 - `tests/test_package_info.py` — Frozen metadata corruption, explicit source mode and pre-bind owned-instance marker regressions.
 - `tests/test_portable_archive.py` — Actual archive bytes, traversal/link/type/budget/permission and extraction regression cases.
@@ -58,6 +59,7 @@ Every tracked-intent file; dependencies/private outputs are excluded.
 - `tests/test_uncertainty_budget.py` — """Independent first-order uncertainty-budget checks by Jason Stys.
 - `tests/ui.spec.ts` — /** Real three-engine calibration workflows by Jason Stys. Functions/variables: docs/CODE_INDEX.md. */
 - `tools/benchmark.py` — """Reviewed calibration contracts and measured resource use by Jason Stys. Index: docs/CODE_INDEX.md.
+- `tools/draft_lookup.py` — Complete bounded authenticated release listing, unique tag and immutable-ID draft validation.
 - `tools/legacy_smoke.py` — Preserved native domain CLI, resource, license, persistence and HTTP acceptance under active guards.
 - `tools/native_browser.mjs` — Owned Chromium context, local resource boundary, version and real-error acceptance.
 - `tools/native_feature_smoke.mjs` — Actual extracted-application new-feature UI/API/download acceptance with independent arithmetic.
