@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "repository": "scientific-sensor-calibration-lab",
+  "runtimeVersion": "1.1.0",
+  "runtimeSource": "1bdb2244451af67d90600e60c566435b66ea2bd0",
+  "createdAt": "2026-11-10T23:53:39.490Z",
+  "author": "Jason Stys",
+  "document": "windows-application-guide.docx",
+  "sha256": "9a25854bdde8623b81660ae90e3cae205d49a0e036168098db21aeb0e33672bb",
+  "screenshots": [
+    {
+      "file": "01-variance-budget.png",
+      "sha256": "7d8984e14c5f7bc00bbf731fbaededea2c83cbf1a7e4dabde468ba033fea8552",
+      "width": 1266,
+      "height": 1071,
+      "caption": "Actual installed application showing response/fit variance contribution. Captured during the accepted native user journey with prepared synthetic inputs."
+    },
+    {
+      "file": "02-expired-withholding.png",
+      "sha256": "920ace768bf3214c47f734ab21e7f7b01ae978c6a45d5496de6ab1be565577af",
+      "width": 1266,
+      "height": 1029,
+      "caption": "Actual installed application showing expired calibration with withheld estimates. Captured during the accepted native user journey with prepared synthetic inputs."
+    }
+  ],
+  "snippets": [
+    {
+      "file": "sensorlab/engine.py",
+      "first": 99,
+      "last": 104,
+      "sha256": "6c62de468e2eee591d0fb2c6d9393461aca2dcb87f3dc72686ce2bcb5d7d6142",
+      "url": "https://github.com/JasonStys/scientific-sensor-calibration-lab/blob/1bdb2244451af67d90600e60c566435b66ea2bd0/sensorlab/engine.py#L99"
+    }
+  ],
+  "observedTests": [
+    {
+      "name": "Published package",
+      "observed": "Exact public release, provider/sidecar hashes and installed resources verified; installed bytes unchanged.",
+      "result": "Passed"
+    },
+    {
+      "name": "Actual native core",
+      "observed": "The existing packaged CLI/API and native feature acceptance helper passed on the installed executable.",
+      "result": "Passed"
+    },
+    {
+      "name": "Scenario evidence",
+      "observed": "Twenty-four rows matched the native reference and response-plus-fit variance accounting. At calibration age 120 all 24 estimates and budgets were withheld.",
+      "result": "Passed"
+    },
+    {
+      "name": "UI and cleanup",
+      "observed": "Actual compiled-application browser journey passed. Both images were individually inspected; cleanup left no owned child process.",
+      "result": "Passed"
+    }
+  ],
+  "visualReview": {
+    "approved": true,
+    "pageCount": 4,
+    "reviewedAt": "2026-11-11T01:39:03.674155+00:00",
+    "reviewers": ["root"],
+    "method": "Every page individually viewed at original resolution; unchanged previously reviewed pages retained only after exact SHA-256 match.",
+    "pageSHA256": {
+      "1": "0bef0e431739da289b8a5f685e3ec034c702a0fae83bac88f72eddedd3aee4c2",
+      "2": "168b1742cdae2633b6cc9ffa95720986daba49fa891f48eebcfcc7aea774f712",
+      "3": "9c86039f1574776af33e924753c7abc9e519caae808de2b4c8525ce64abf1cce",
+      "4": "0cc4358fed0c9d925af580d79704251e43356d2b9874bb186a9c8b900e6bf7e5"
+    },
+    "ooxmlSchema": "passed",
+    "issues": []
+  }
+}
